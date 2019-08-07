@@ -2,12 +2,15 @@ package main
 
 import (
 	"crypto/rand"
+	"encoding/json"
+	"fmt"
 	"math/big"
 )
 
 type ventas struct {
 	Ventas int
 	Clima  string
+	Dia    int
 }
 
 func distClima(ndays int) []ventas {
@@ -19,27 +22,27 @@ func distClima(ndays int) []ventas {
 		rnd := rndBig.Int64()
 
 		if rnd >= 0 && rnd < 30 {
-			ven = append(ven, ventas{
-				Ventas: 1,
-				Clima:  "Caluroso",
-			})
+			day := ventas{
+				Clima: "Caluroso",
+				Dia:   i,
+			}
+			asignarVentas(&day)
+
+			ven = append(ven, day)
 		}
 		if rnd >= 30 && rnd < 70 {
 			ven = append(ven, ventas{
-				Ventas: 1,
-				Clima:  "Nebuloso",
+				Clima: "Nebuloso",
 			})
 		}
 		if rnd >= 70 && rnd < 90 {
 			ven = append(ven, ventas{
-				Ventas: 1,
-				Clima:  "Tormentoso",
+				Clima: "Tormentoso",
 			})
 		}
 		if rnd >= 90 && rnd < 100 {
 			ven = append(ven, ventas{
-				Ventas: 1,
-				Clima:  "Espantoso",
+				Clima: "Espantoso",
 			})
 		}
 	}
@@ -47,8 +50,13 @@ func distClima(ndays int) []ventas {
 	return ven
 }
 
+func asignarVentas(ven *ventas) {
+	ven.Ventas = 1
+}
+
 func main() {
 
-	distClima(90)
-
+	ven := distClima(90)
+	str, _ := json.Marshal(ven)
+	fmt.Println(string(str))
 }
