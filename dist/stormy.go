@@ -1,13 +1,15 @@
 package dist
 
 import (
+	"crypto/rand"
 	"math"
-	"math/rand"
+	"math/big"
 )
 
 func stormy(ven *Venta) {
-	max := 25
-	x := rand.Intn(max)
+	max := int64(25)
+	probabilityBig, _ := rand.Int(rand.Reader, big.NewInt(100))
+	x := probabilityBig.Int64()
 	if x <= 0 {
 		ven.Ventas = 0
 	} else if x >= max {

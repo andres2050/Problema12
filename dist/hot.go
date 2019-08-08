@@ -1,9 +1,13 @@
 package dist
 
-import "math/rand"
+import (
+	"crypto/rand"
+	"math/big"
+)
 
 func hot(ven *Venta) {
-	probability := rand.Intn(100)
+	probabilityBig, _ := rand.Int(rand.Reader, big.NewInt(100))
+	probability := probabilityBig.Int64()
 	if probability >= 0 && probability < 20 {
 		ven.Ventas = 20
 	}
