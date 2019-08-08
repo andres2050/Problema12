@@ -3,7 +3,6 @@ package dist
 import "math/rand"
 
 func hot(ven *Venta) {
-	ven.Ventas = 1
 	probability := rand.Intn(100)
 	if probability >= 0 && probability < 20 {
 		ven.Ventas = 20
