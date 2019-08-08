@@ -10,7 +10,7 @@ func hot(ven *Venta) {
 	if probability >= 20 && probability < 50 {
 		ven.Ventas = 30
 	}
-	if probability >= 60 && probability < 100 {
+	if probability >= 50 && probability < 100 {
 		ven.Ventas = 40
 	}
 }
