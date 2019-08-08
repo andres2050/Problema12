@@ -1,6 +1,9 @@
 package dist
 
-import "math/rand"
+import (
+	"math"
+	"math/rand"
+)
 
 func stormy(ven *Venta) {
 	max := 25
@@ -10,7 +13,6 @@ func stormy(ven *Venta) {
 	} else if x >= max {
 		ven.Ventas = 25
 	} else {
-		density := x / max
-		ven.Ventas = int(x * density)
+		ven.Ventas = int(math.Pow(float64(x), 2) / float64(max))
 	}
 }

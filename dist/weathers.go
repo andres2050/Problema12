@@ -24,29 +24,34 @@ func DistClima(ndays int) []Venta {
 				Clima: "Caluroso",
 				Dia:   i,
 			}
-			asignarVentas(&day)
+			hot(&day)
 			ven = append(ven, day)
 		}
 		if rnd >= 30 && rnd < 70 {
-			ven = append(ven, Venta{
+			day := Venta{
 				Clima: "Nebuloso",
-			})
+				Dia:   i,
+			}
+			nebulous(&day)
+			ven = append(ven, day)
 		}
 		if rnd >= 70 && rnd < 90 {
-			ven = append(ven, Venta{
+			day := Venta{
 				Clima: "Tormentoso",
-			})
+				Dia:   i,
+			}
+			stormy(&day)
+			ven = append(ven, day)
 		}
 		if rnd >= 90 && rnd < 100 {
-			ven = append(ven, Venta{
+			day := Venta{
 				Clima: "Espantoso",
-			})
+				Dia:   i,
+			}
+			horrible(&day)
+			ven = append(ven, day)
 		}
 	}
 
 	return ven
-}
-
-func asignarVentas(ven *Venta) {
-	ven.Ventas = 1
 }
