@@ -5,12 +5,14 @@ import (
 	"math/big"
 )
 
+//Venta asas
 type Venta struct {
 	Ventas int
 	Clima  string
 	Dia    int
 }
 
+//DistClima asas
 func DistClima(ndays int) []Venta {
 
 	ven := make([]Venta, 0)
