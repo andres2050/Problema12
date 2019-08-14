@@ -54,9 +54,12 @@ func PruebaDeMedias(numbers int) {
 	limiteInferior := middle - 1.96*(varian/(math.Sqrt(float64(numbers))))
 	if middle < limiteSuperior {
 		if middle > limiteInferior {
-			fmt.Printf("Prueba media superada: %f > %f > %f", limiteSuperior, middle, limiteInferior)
+			fmt.Printf("Prueba media superada: %f > %f > %f\n", limiteSuperior, middle, limiteInferior)
 		}
 	} else {
-		fmt.Printf("Prueba media no superada: %f > %f > %f", limiteSuperior, middle, limiteInferior)
+		fmt.Printf("Prueba media no superada: %f > %f > %f\n", limiteSuperior, middle, limiteInferior)
 	}
+	fmt.Printf("Limite Superior: %f\n", limiteSuperior)
+	fmt.Printf("Media: %f\n", middle)
+	fmt.Printf("Limite Inferior: %f\n", limiteInferior)
 }

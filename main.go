@@ -5,12 +5,14 @@ import (
 	"io/ioutil"
 
 	"github.com/andres2050/Problema12/dist"
+	"github.com/andres2050/Problema12/ran"
 )
 
 func main() {
-
-	ven := dist.DistClima(90)
+	days := 90
+	ven := dist.DistClima(days)
 	dataToExcel(ven)
+	ran.PruebaDeMedias(days)
 }
 
 func dataToExcel(data []dist.Venta) {
