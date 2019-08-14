@@ -56,5 +56,7 @@ func PruebaDeMedias(numbers int) {
 		if middle > limiteInferior {
 			fmt.Printf("Prueba media superada: %f > %f > %f", limiteSuperior, middle, limiteInferior)
 		}
+	} else {
+		fmt.Printf("Prueba media no superada: %f > %f > %f", limiteSuperior, middle, limiteInferior)
 	}
 }
